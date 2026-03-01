@@ -30,4 +30,6 @@ def webhook():
     return "ok"
 
 if __name__ == "__main__":
-    app.run()
+    # Bind Flask to the port Render expects
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
